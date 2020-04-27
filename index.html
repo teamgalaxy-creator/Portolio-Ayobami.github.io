@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Portfolio - Ayobami</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+	<!-- Load Leaflet from CDN-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
+    
+    <script src="http://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+  <script src="js/leaflet-providers.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@[VERSION]/dist/L.Control.Locate.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@[VERSION]/dist/L.Control.Locate.min.js" charset="utf-8"></script> 
+
+<!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet"></script>
+
+    <!-- Esri Leaflet Geocoder -->
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
+    <script src="https://unpkg.com/esri-leaflet-geocoder"></script>
+ 		
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+    <style>
+      .thumbnail-gif {
+        width: 100%;
+        height: 254px;
+      }
+
+	
+      
+    .leaflet-control-layers-expanded {
+    width: 207px;
+    background-color: #1a252f;
+    box-shadow: 0 0 15px #18BC9C;
+
+    padding: 0;
+    border: 4px solid #18BC9C;
+    border-radius: 5px;
+    overflow-x: hidden;
+}
+      
+
+      /* customize look of leaflet zoom controls */
+.leaflet-bar{
+  box-shadow: 0 0 15px rgba(gray, 0.2);
+    border: 0px solid rgba(0,0,0,.15);
+}
+.leaflet-control-zoom a{
+    
+  box-shadow: 0 1px 5px rgba(0,0,0,0.65); 
+    border: 0px solid rgba(0,0,0,.15);
+}
+.leaflet-bar a{
+  border-radius: 0px;
+  background-color: #1a252f;
+  border: 0px solid rgba(0,0,0,.15);
+  color:  #18BC9C;
+}
+.leaflet-bar a:last-child{
+  border: 0px solid rgba(0,0,0,.15);
+}
+.leaflet-bar a:hover{
+  background-color: #18BC9C;
+  border: 0px solid rgba(0,0,0,.15);
+  color: #128f76;
+}
+.leaflet-control-zoom-in{
+  margin-top: 10px;
+}
+.leaflet-control-zoom-out{
+  margin-top: 10px;
+}
+.leaflet-control-scale-line {
+            width: auto;
+        outline-width: thick;
+		 	background-color:  #18BC9C;
+
+		}
+      geocoder-control-input.leaflet-bar {
+          color: #f23;
+    font-size: 10px;
+    height: 18px;
+    padding-left: 5px;
+    margin-top: 3px;
+    outline:none;
+          
+      }
+    </style>
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">AYOBAMI ABEJIDE</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#web">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container">
+        
+        <h1 class="text-uppercase mb-0">AYOBAMI ABEJIDE</h1>
+        <br>
+        <h2 class="font-weight-light mb-0">Motivated and results-driven data analyst with a proven track record in data analytics and process mapping; and proven ability to identify business needs and develop valuable solutions to drive accuracy and process efficiency. Seeking an opportunity to drive business effectiveness through making recommendations based on data findings.</h2>
+      </div>
+    </header>
+
+    <!-- Portfolio Grid Section -->
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+	
+		
+        <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+        <br>
+        <div>
+          <div class="col-md-6 col-lg-3">
+            
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <p>Interactive Map</p>
+                </div>
+              </div>
+                <p>Interactive Mappping</p>
+                <div id='map' style="height:600px;width: 1110px ; border: 5px solid  #18BC9C;border-radius: 5px;overflow-x: hidden;"></div>
+
+          </div>
+            <div class='row'>
+          <div class="col-md-6 col-lg-3">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <p>Site suitability Analysis</p>
+                </div>
+              </div>
+                <p>Site suitability Analysis</p>
+              <img class="img-fluid thumbnail-gif" src=".//img/Suitability_analysis.PNG" alt="suitability">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <p>Covid-19 Hotospot</p>
+                </div>
+              </div>
+                <p>Covid-19 Hotospot</p>
+              <img class="img-fluid thumbnail-gif" src=".//img/map2.jpg" alt="leb_map">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <p>Spatial analysis of health data</p>
+                </div>
+              </div>
+                <a>Spatial analysis of health data</a>
+              <img class="img-fluid thumbnail-gif" src=".//img/hotspot.png" alt="100_Vac">
+            </a>
+          </div>
+        </div>
+      </div>
+          </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="bg-primary text-white mb-0" id="about">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">About</h2>
+        <br>
+        <div class="row">
+          <div class="col-lg-18 mx-auto container">
+            <p class="lead">
+              EDUCATION
+Bachelor of Science, Geomatics   <br>                                                         January 2015 – Present
+Carleton University. Ottawa, Ontario.<br>
+ <br>
+SKILLS<br>
+Technical Skills<br>
+-Data quality assurance processes<br>
+-Remote Sensing (PCI GEOMATICA)<br>
+-Programming (C++, JAVA, ARCGIS)<br>
+<br>
+<br>
+<br>
+ Soft Skills<br>
+-Self-motivated <br>
+-Uncompromising work ethic<br>
+-Deadline-driven<br>
+-Ability to work well under pressure<br>
+-Adaptable/flexible<br>
+-Fast learner<br>
+-Detail-oriented<br>
+	<br>
+<br>
+	<br> 
+WORK EXPERIENCE<br>
+<br>
+Content Creator & Web Designer <br>
+Visuvo Productions - Ottawa, Ontario<br>
+December 2018 –present<br>
+<br> 
+• Servicing and creating websites for clients<br>
+• Running of different ad campaigns/content creation<br>
+• Populate Client website with respect to needs.<br>
+• Provide Clients with updates on ad Campaigns<br>
+ <br>
+<br>
+  Call Centre  Agent<br>
+  September 2019 - October 2019<br>
+ Elections Canada - Ottawa, Ontario<br>
+<br>
+• Provided citizens with information related to voting<br>
+• Escalated issues that required urgency to the upper-tier <br>
+• Maintained security protocols/privacy while servicing citizens<br>
+• Assisted citizens with the necessary steps to enable them to vote remotely<br>
+• Handled client’s complaints professionally and provided solutions<br>
+ <br>
+ <br>
+ <br> 
+QA Analyst<br>                                                                                                            May 2017 - Sep 2017<br>
+Prokton Serv – Brampton, Canada<br>
+ <br>
+• Validated schematic designs working alongside hardware engineers.<br>
+• Created and built firmware to test associate hardware.<br>
+• Copied, logged and scanned supporting documentation.<br>
+• Conducted regression testing for a company software upgrade.<br>
+• Created the design for DCP Upgrade project.<br>
+• Performed initial client assessment and analysis to begin research processes.<br>
+ <br>
+VOLUNTEER EXPERIENCE<br>
+ <br>
+UNICEF- Carleton University<br>
+• Assisted to provide food and shelter to sixty homeless kids.<br>
+ <br>
+HOBBIES & INTERESTS<br>
+ <br>
+• Music<br>
+• Sports<br>
+• Photography<br>
+ <br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Around the web Section -->
+    <section id="web">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Contact</h2>
+        <br>
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <p class="lead">
+               <a>AYOBAMI ABEJIDE</a><br>
+                <a>1576 Cornerstone Blvd, NE Calgary, AB</a><br>
+                <a>(613) 915-7319</a><br>
+                <a>Contact Email: ayobamiabejide@yahoo.ca</a><br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        
+      </div>
+    </div>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-to-top d-lg-none position-fixed ">
+      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+
+    <!-- Portfolio Modals -->
+
+    <!-- Portfolio Modal 1 -->
+    
+ 
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
+        <div class="portfolio-modal-dialog bg-white">
+          <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+            <i class="fa fa-3x fa-times"></i>
+          </a>
+          <div class="container text-left">
+            <div class="row">
+              <div class="col-lg-12 mx-auto">
+                <h2 class="text-secondary text-uppercase mb-0 text-center">Site selection or suitability analysis</h2>
+                <hr class="star-dark mb-5">
+                <p class="mb-5 text-center">
+                  
+                  <a href="https://drive.google.com/file/d/0B4wHEIw0a0_nWGVWTGtyQnVWbEhCanVyaHViOU9JUktDczMw/view" target="_blank">
+                   <img class="img-fluid" src=".//img/Suitability_analysis.PNG" alt="suitability">
+                  </a>
+                </p>
+                <p class="mb-5">
+                  Site selection or suitability analysis is a type of analysis used in GIS to determine the best place or site for something. Potential sites used in suitability analysis can include the location of a new hospital, store or school among many others. When performing site selection analysis users must set various criteria from which the GIS software can rate the best or ideal sites. Site selection analysis can be performed with vector or raster data but one of the most widely used types of site selection, weighted site selection, uses raster data. Weighted site selection analysis allows users to rank raster cells and assign a relative importance value to each layer (ESRI). The result is a suitability surface which ranks potential sites from 1 to 5. Sites with a value of 1 are least suitable and those with a value of 5 are most suitable. Weighted site selection is an important site selection method because it includes options for viewing next-best sites (those with a value of 4) should the ideal sites not work. How to Use Weighted Site Selection in GIS In order to use weighted site selection there is a standard workflow that should be followed. This workflow usually begins with defining a problem or criteria such as locating some potential sites for a new ski resort. The next step is to gather data and create raster surfaces to be used in the analysis. This step is followed by reclassifying the layers, weighting them and then overlaying the output layers with background information such as a map of topography to see the best potential sites. Reclassification is important in weighted site selection because it is used to simplify the interpretation of raster data by changing a single input value into a new output value (ESRI). It can also be used to group ranges of cell values into a single value. For example you can assign a value of 1 to a set of values that range from 1-50 and 2 to values that range from 51-100. This simplifies weighted site selection because different types of raster data will have different values based on what they show (ESRI). By using reclassification they are all based on the same ranking scheme that can be used to compare and rank the least and most suitable sites. Weighting layers is another critical step in weighted site selection because it allows the user to place varying levels of importance on different factors such as proximity to a major highway and sun exposure (ESRI). Weights are usually determined by a panel of experts on the subject being tested and they are based on specific criteria for the analysis. Weights are assigned as different percentages that must add up to 100%. Advertisement When to Use Weighted Site Selection in GIS Weighted site selection or suitability analysis is best to use with raster data when a user needs to find a site based on a number of criteria such as the following problems explained by the ESRI Virtual Campus course “Using Raster Data for Site Selection”: When one needs to find the rankings of suitability for cells in a raster dataset When one needs to find next-best site options in addition to finding an ideal site When data has a distinct boundaries and other levels of certainty When the user determines where something will go based on specified criteria When the user wants to rank different criteria as more or less important in finding an ideal site Map showing results of site selection analysis. Red indicates areas with the highest matching criteria and blue shows areas that rank lowest in meeting all the criteria. <br>
+MAP SHOWING RESULTS OF SITE SELECTION ANALYSIS. RED INDICATES AREAS WITH THE HIGHEST MATCHING CRITERIA AND BLUE SHOWS AREAS THAT RANK LOWEST IN MEETING ALL THE CRITERIA. <br>
+Weighted Site Selection Example One example of a common weighted site selection problem is locating the best site for a new business such as a vineyard. This is a good example because vineyard operators have a number of different criteria that are needed to successfully grow grapes and these criteria can be ranked or weighted to find the best potential sites. These factors could be slope, elevation, sun exposure and distance to major freeways. In conducting a weighted site selection analysis all of these will be ranked based on their overall importance. For example, sun exposure could be weighted as 40% because grapes will not grow properly with too little or too much sun. Slope is 30% while elevation would be 20% because if the vineyard is too high, the temperatures will be too cold and there could be too much moisture for the grapes. Distance to freeways would be 10% because although important for visitors, without the right growing conditions there could be no vineyard at all. In addition, a vineyard will have a distinct boundary, the developer will choose the final site (i.e.- the vineyard can’t move itself like an animal would) and next-best site options are necessary should the ideal site not work. This is just one example of many potential weighted site selection projects and because of its versatility, weighted site selection is an important tool in GIS. <br>
+References ESRI. (n.d.). “Using Raster Data for Site Selection.” ESRI Virtual Campus. Personal Notes. (Course Taken 2 April 2014)
+
+                  <br/><br/>
+                  <br>
+                </p>
+                <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                  <i class="fa fa-close"></i>
+                  Close Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
+        <div class="portfolio-modal-dialog bg-white">
+          <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+            <i class="fa fa-3x fa-times"></i>
+          </a>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 mx-auto">
+                <h2 class="text-secondary text-uppercase mb-0 text-center">Covid-19 Hotspots - till 22 march</h2>
+                <hr class="star-dark mb-5">
+                <p class="mb-5 text-center">
+                  <img class="img-fluid" src=".//img/map2.jpg" alt="leb_map">
+                </p>
+                <p>
+                  Created a Beautiful hard map with statistic visualizing of Covid-19 Hotspots till 22 March 2020. 
+                  <br/><br/>
+                  
+                </p>                
+                <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                  <i class="fa fa-close"></i>
+                  Close Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Portfolio Modal 4 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-4">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <h2 class="text-secondary text-uppercase mb-0 text-center"> Spatial analysis of health data</h2>
+              <hr class="star-dark mb-5">
+              <p class="mb-5 text-center">
+                <img class="img-fluid" src=".//img/map5.png" alt="100_Vac">
+              </p>
+              <p>
+                 Data clearing, quality assurance, mapping and spatial analysis of health data collected across most regions of Ethiopia. The facility mapping and analysis encompasses converting GPS based survey data in to points and undertaking analysis on over 20 indicators for the health sector. 
+                
+                
+              </p>
+              <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                <i class="fa fa-close"></i>
+                Close Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/freelancer.min.js"></script>
+
+<script>
+
+	var southWest = L.latLng(20.380411, 116.361277),
+northEast = L.latLng(5.220929, 130.984295),
+bounds = L.latLngBounds(southWest, northEast);
+
+  var map = new L.map('map',{
+		attributionControl: false,
+		zoomControl: false,
+		
+		maxZoom : 16,
+		zoomSnap : 0,
+  maxBoundsViscosity: 1.0
+}).setView([59.395965, -112.845837],3);
+
+
+
+  var streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZmFyaGFucm9jazMyIiwiYSI6ImNrN3Z6amxmNTAxZXQzZ3Fwd3lwODk1N2wifQ.6AyaQ5eYlSu9HFTyT92viQ', {
+    format: 'jpg80',
+    minZoom: 1,
+    maxZoom:16,
+    tileSize: 256,
+    reuseTiles: true, 
+    unloadInvisibleTiles: true
+  }).addTo(map);
+
+ 
+
+var earth = L.tileLayer('https://api.mapbox.com/styles/v1/farhanrock32/ck9e7sdr428t21io7xf81zvuq/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZmFyaGFucm9jazMyIiwiYSI6ImNrN3Z6amxmNTAxZXQzZ3Fwd3lwODk1N2wifQ.6AyaQ5eYlSu9HFTyT92viQ');
+
+var hybrid = L.tileLayer('https://api.mapbox.com/styles/v1/farhanrock32/ck9e7qpyz28km1ilgoyjjb5mc/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZmFyaGFucm9jazMyIiwiYSI6ImNrN3Z6amxmNTAxZXQzZ3Fwd3lwODk1N2wifQ.6AyaQ5eYlSu9HFTyT92viQ');
+
+
+
+var scale = L.control.scale().addTo(map);
+
+
+
+
+
+
+L.control.layers({
+        "<div id='mapstreet' style='width:200px;height:150px; border: 2px solid  #18BC9C;border-radius: 5px;overflow-x: hidden;'></div>"
+        : streets,
+   
+
+     "<div id='mapearth' style='width:200px;height:150px;border: 2px solid  #18BC9C; border-radius: 5px;overflow-x: hidden;'></div>"
+    : earth,
+       	"<div id='maphybrid' style='width:200px;height:150px;border: 2px solid  #18BC9C;border-radius: 5px;overflow-x: hidden;'></div>" 
+    : hybrid,
+    }, null, {
+        position: "topright",
+	collapsed: false
+    }).addTo(map);
+
+
+
+ map.on('click resize',function(e){
+var coord=e.latlng.toString().split(',');
+var lat=coord[0].split('(');
+var long=coord[1].split(')');
+var currentzoom = map.getZoom();
+
+mapstreet.flyTo([lat[1],long[0]],currentzoom);
+mapearth.flyTo([lat[1],long[0]],currentzoom);
+
+maphybrid.flyTo([lat[1],long[0]],currentzoom);
+});  
+
+
+
+var mapearth = L.map('mapearth',{
+		attributionControl: false,
+		zoomControl: false,
+		
+		maxZoom : 16,
+		zoomSnap : 0,
+  maxBoundsViscosity: 1.0
+});
+mapearth.setView([59.395965, -112.845837],2);
+
+var mapearthtile = L.tileLayer('https://api.mapbox.com/styles/v1/farhanrock32/ck9e7sdr428t21io7xf81zvuq/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZmFyaGFucm9jazMyIiwiYSI6ImNrN3Z6amxmNTAxZXQzZ3Fwd3lwODk1N2wifQ.6AyaQ5eYlSu9HFTyT92viQ', {
+    
+  }).addTo(mapearth);
+
+    
+    
+var mapstreet = L.map('mapstreet',{
+		attributionControl: false,
+		zoomControl: false,
+		maxZoom : 16,
+		zoomSnap : 0,
+  maxBoundsViscosity: 1.0
+}).setView([59.395965, -112.845837],2);
+
+var mapstreettile = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZmFyaGFucm9jazMyIiwiYSI6ImNrN3Z6amxmNTAxZXQzZ3Fwd3lwODk1N2wifQ.6AyaQ5eYlSu9HFTyT92viQ', {
+    
+  }).addTo(mapstreet);
+
+
+
+
+var maphybrid = L.map('maphybrid',{
+		attributionControl: false,
+		zoomControl: false,
+		
+		maxZoom : 16,
+		zoomSnap : 0,
+  maxBoundsViscosity: 1.0
+}).setView([59.395965, -112.845837],2);
+
+var mapstreets = L.tileLayer('https://api.mapbox.com/styles/v1/farhanrock32/ck9e7qpyz28km1ilgoyjjb5mc/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZmFyaGFucm9jazMyIiwiYSI6ImNrN3Z6amxmNTAxZXQzZ3Fwd3lwODk1N2wifQ.6AyaQ5eYlSu9HFTyT92viQ', {
+    
+  }).addTo(maphybrid);
+
+
+
+
+
+
+
+
+var searchsouthWest = L.latLng(18.545209, 116.146949),
+searchnorthEast = L.latLng(5.220929, 130.984295),
+searchbounds = L.latLngBounds(searchsouthWest, searchnorthEast);
+
+
+
+
+
+var searchControl = L.esri.Geocoding.geosearch({
+			expanded : true,
+  
+		placeholder : " ",
+		useMapBounds : 11,
+		collapseAfterResult : false,
+		panToPoint: true,
+		focus: true,
+}).addTo(map);
+
+    // create an empty layer group to store the results and add it to the map
+    var results = L.layerGroup().addTo(map);
+
+    // listen for the results event and add every result to the map
+    searchControl.on("results", function(data) {
+        results.clearLayers();
+        for (var i = data.results.length - 1; i >= 0; i--) {
+            results.addLayer(L.marker(data.results[i].latlng).bindPopup((data.results[i].latlng).toString()));
+        }
+    });
+
+
+
+var zoomcontrol = L.control.zoom({
+        position : "bottomleft"
+    }).addTo(map);
+
+
+</script>
+
+
+
+  </body>
+
+</html>
